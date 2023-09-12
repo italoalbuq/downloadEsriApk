@@ -33,7 +33,7 @@ if st.button("Baixar Aplicativo"):
                 arquivo_local.write(response.content)
             st.success(f"Download concluído: {nome_arquivo_local}")
             
-            # Criar um link de download
-            st.markdown(f"Baixe o arquivo [aqui]({nome_arquivo_local})", unsafe_allow_html=True)
+            # Criar um link de download com a URL completa
+            st.markdown(f"Baixe o arquivo [aqui]({url})", unsafe_allow_html=True)
         else:
             st.error(f"Erro ao fazer o download: Código de status {response.status_code}")
