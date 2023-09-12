@@ -27,6 +27,9 @@ if st.button("Baixar Aplicativo"):
     if url:
         response = requests.get(url)
         if response.status_code == 200:
+            nome_arquivo_local = f"{nome_aplicativo.replace(' ', '_')}_{versao}.exe"
+            with open(nome_arquivo_local, 'wb') as arquivo_local:
+                arquivo_local.write(response.content)
             st.success(f"Download concluído: {nome_arquivo_local}")
             st.markdown(
                 f"Baixe o arquivo [aqui](data:application/octet-stream;base64,{response.content.decode('utf-8')})",
