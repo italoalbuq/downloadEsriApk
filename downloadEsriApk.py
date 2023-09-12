@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import base64
 
 # Título da aplicação
 st.title("Download de Aplicativos Esri")
@@ -32,7 +33,7 @@ if st.button("Baixar Aplicativo"):
                 arquivo_local.write(response.content)
             st.success(f"Download concluído: {nome_arquivo_local}")
             st.markdown(
-                f"Baixe o arquivo [aqui](data:application/octet-stream;base64,{response.content.decode('utf-8')})",
+                f"Baixe o arquivo [aqui](data:application/octet-stream;base64,{base64.b64encode(response.content).decode()})",
                 unsafe_allow_html=True
             )
         else:
