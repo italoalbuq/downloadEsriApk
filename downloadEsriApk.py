@@ -25,12 +25,12 @@ if st.button("Baixar Aplicativo"):
 
     # Se a URL foi definida, faz a solicitação GET
     if url:
-    response = requests.get(url)
-    if response.status_code == 200:
-        st.success(f"Download concluído: {nome_arquivo_local}")
-        st.markdown(
-            f"Baixe o arquivo [aqui](data:application/octet-stream;base64,{response.content.decode('utf-8')})",
-            unsafe_allow_html=True
-        )
-    else:
-        st.error(f"Erro ao fazer o download: Código de status {response.status_code}")
+        response = requests.get(url)
+        if response.status_code == 200:
+            st.success(f"Download concluído: {nome_arquivo_local}")
+            st.markdown(
+                f"Baixe o arquivo [aqui](data:application/octet-stream;base64,{response.content.decode('utf-8')})",
+                unsafe_allow_html=True
+            )
+        else:
+            st.error(f"Erro ao fazer o download: Código de status {response.status_code}")
